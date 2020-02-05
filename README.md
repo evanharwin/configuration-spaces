@@ -1,5 +1,6 @@
-# configuration-spaces
-## Current Talking Points
+# Math Project, Study of Configuration Spaces
+
+## Current Talking Points
 
 - __Kapovich and Millson vs. Robert Ghrist's "Corollary C"__
 
@@ -15,7 +16,7 @@
 - Get an idea of how the configuration space changes with incremental changes in the linkage.
 - Rigorusly define the above task, understanding changes in the linkage and how this relates to the configuration space.
 
-## Links
+## Links
 
 Kapovich and Millson 
 
@@ -77,7 +78,7 @@ This has some points to take away, namely we **are** assigning a distinct point 
 
 Also, the point *'almost always a manifold'* should also be addressed, this can be narrowed down by assuming that the linkages we look at can never fit into a straight line; this can be found here http://amj.math.stonybrook.edu/pdf-Springer-final/017-0070.pdf in Gaiane Panina's paper, but should probably trace the reference to find it's original source, likely Kapovich and Millson. 
 
-##### Kapovich and Millson Define a _Moduli Space_
+##### Kapovich and Millson Define a _Moduli Space_
 
 Firstly, we should address the difference in terminology used by the authors here, it seems that in this context, looking at linkages the Moduli Space and the Configuration Space are the same thing. 
 
