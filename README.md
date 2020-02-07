@@ -19,12 +19,16 @@
 ## Links
 
 Kapovich and Millson 
+https://arxiv.org/pdf/math/9803150.pdf
 
 Robert Ghrist
+https://www.math.upenn.edu/~ghrist/EAT/EATchapter1.pdf
 
 Gaiane Panina
+http://amj.math.stonybrook.edu/pdf-Springer-final/017-0070.pdf
 
-The 1985 Undergrad Thesis?
+Kevin Walker
+https://canyon23.net/math/1985thesis.pdf
 
 ## Project Notes
 
