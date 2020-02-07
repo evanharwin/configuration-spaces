@@ -15,6 +15,7 @@
 - Work out linkages that have confiuration spaces diffeomorphic to some common manifolds: tori, spheres, planes?
 - Get an idea of how the configuration space changes with incremental changes in the linkage.
 - Rigorusly define the above task, understanding changes in the linkage and how this relates to the configuration space.
+- Look at https://projecteuclid.org/download/pdf_1/euclid.pja/1148393908
 
 ## Links
 
