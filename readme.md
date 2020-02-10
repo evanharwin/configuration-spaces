@@ -1,4 +1,4 @@
-## Current Talking Points
+## Current Talking Points
 
 - __Kapovich and Millson vs. Robert Ghrist's "Corollary C"__
 
@@ -14,7 +14,7 @@
 - Get an idea of how the configuration space changes with incremental changes in the linkage.
 - Rigorusly define the above task, understanding changes in the linkage and how this relates to the configuration space.
 
-## Links
+## Links
 
 Kapovich and Millson 
 https://arxiv.org/pdf/math/9803150.pdf
