@@ -19,9 +19,9 @@ I decided to work through finding a homotopy between the rectangle linkage and t
     I was wondering if maybe in the 'final product' I should go through some trivial homotopies like the n-arms and leave the more complicated stuff to be explained in words?
     
 - __Understanding the Importance of Nash Isomorphisms__
-    I had a look at what I could find out about Nash Isomorphisms, and I managed to find a definition of a Nash function, and _I think_ I've got an idea of what a Nash manifold is. Then I found a theorum about how all 
+    I had a look at what I could find out about Nash Isomorphisms, and I managed to find a definition of a Nash function, and _I think_ I've got an idea of what a Nash manifold is. Then I found a theorum about how all smooth compact manifolds (even permitting some boundaries) are diffeomorphic to a Nash manifold. This seems interesting, but I have yet to really understand why it might come in helpful looking at linkages.
 
-## Looked At This Week
+## Looked At This Weekh 
 
 -   Demonstrated the existence of a homotopy between the configuration space of a rectangle and a manifold composed of two circles intersecting at two points.
 -   Programmed the structure needed for threejs rendering, a webpage using threejs and orbit controls, as well as a script for defining the objects to render
@@ -171,7 +171,7 @@ A Nash Manifold is an example of a $U$ from the above definition that also has t
 
 From Wikipedia, this result looks like it could be helpful:
 
->   "More generally, a smooth manifold admits a Nash manifold structure if  and only if it is diffeomorphic to the interior of some compact smooth manifold possibly with boundary."
+>   "More generally, a smooth manifold admits a Nash manifold structure if and only if it is diffeomorphic to the interior of some compact smooth manifold possibly with boundary."
 >
 >   https://en.wikipedia.org/wiki/Nash_functions
 
