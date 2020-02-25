@@ -63,7 +63,29 @@ http://homepages.warwick.ac.uk/~maskas/courses/schuetz1.pdf
 
 ## Project Notes
 
-##### _Describing the Homotopy between the 1-arm, 2-arm and n-arm and the $\mathbb T^n $==work in progress==_
+##### Thinking about the Fundamental Group, Free Products and the $(C_4, (a,b,a,b))$ 
+
+Looking at this manifold:
+
+![image-20200211170146292](.\images\image-20200211170146292.png)
+
+We can find a homotopy between this and the $\bigwedge_3 \mathbb S^1$ as follows: ==somehow I think I might want to redraw this==
+
+![image-20200225121214537](C:\Users\evan\Documents\configuration-spaces\images\image-20200225121214537.png)
+
+This then means we can apply the Siefert-van Kampen Theorem and get that $\Pi_1(M((C_4, (a,b,a,b)))) \simeq \bold *_3 \mathbb Z$.
+
+This is interesting if we remember the meaning of the configuration space and the fundamental group. 
+
+We first have to follow our fixed point of intersection (red in the diagram above) and work out what that means in our linkage. This is a position where the switch has only one state. ==I think== without loss of generality, depending on how we manipulate our manifold, this will be the position where the coordinate of the first linkage is either $\frac \pi 2$ or $\frac {3\pi} 2$ and the structure follows a straight line.
+
+Given the free product and the fundamental group, this leads to an idea of a 'loop' in our linkage where we end up back at this fixed point, and the fact it's an $\bigwedge_3 \mathbb S^1$ implies that there is 3 unique ways of 'looping' back to this position. 
+
+To outline a potential form these three loops might take:
+
+==non complete== 
+
+##### Describing the Homotopy between the 1-arm, 2-arm and n-arm and the $\mathbb T^n $==work in progress==_
 
 ##### _Describing the Homotopy between a $(C_4, (a,b,a,b))$ and the Intersecting $\mathbb S^1$'s_
 
