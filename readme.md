@@ -2,47 +2,44 @@
 typora-copy-images-to: images
 ---
 
-## Current Talking Points
+## Meeting Notes
 
-- __Exploring the Configuration Space of the 5-gon__
-    Kevin Walker talks about how you can supposedly derive all of the orientable 2-manifolds from genus zero to four, looking at the configuration space of a $C_5$ with different length functions.
+## Looked at Since Last Meeting
 
-    However, he does this from a diagram I can't claim to understand yet.
+- __Big Update to Linkage Renderer__
 
-    I think the roots of this come from something called a fibered product, as well as an idea that if you add a link of a small enough length to something you can gain a Cartesian product with an $\mathbb S^1$ in your configuration space.
+    The linkage rendering has been accomplished, and it has grown in scope fairly substantially. Namely, the broken 4-gon from before now renders nicely going from this:
 
-- __Discussing my Approach to Finding Homotopies__
-I decided to work through finding a homotopy between the rectangle linkage and the manifold composed of two $\mathbb S^1$'s, disjoint besides two antipodal points. 
-    
-    This was a little fiddly but the main issue is that it looks super messy and is hard to understand, even though the intuition as to why it works feels simple.
-    
-    I was wondering if maybe in the 'final product' I should go through some trivial homotopies like the n-arms and leave the more complicated stuff to be explained in words?
-    
-- __Understanding the Importance of Nash Isomorphisms__
-    I had a look at what I could find out about Nash Isomorphisms, and I managed to find a definition of a Nash function, and _I think_ I've got an idea of what a Nash manifold is. Then I found a theorum about how all smooth compact manifolds (even permitting some boundaries) are diffeomorphic to a Nash manifold. This seems interesting, but I have yet to really understand why it might come in helpful looking at linkages.
+    ![image-20200213111607569](C:/Users/evan/Documents/configuration-spaces/images/image-20200213111607569.png)
 
-## Looked At This Weekh 
+    To this; fixed, with points highlighted and antialiasing enabled:
 
--   Demonstrated the existence of a homotopy between the configuration space of a rectangle and a manifold composed of two circles intersecting at two points.
--   Programmed the structure needed for threejs rendering, a webpage using threejs and orbit controls, as well as a script for defining the objects to render
--   Defined `Manifold`, `CirclesTwoIntersections`, `Linkage` and  `Polygon` classes. `CirclesTwoIntersections` is  fully functional and looking pretty:
-    ![image-20200213111521351](.\images\image-20200213111521351.png)
-    However `Polygon` still needs a little work:
-    ![image-20200213111607569](.\images\image-20200213111607569.png)(meant to be a 2x1 rectangle)
--   Defined a standard way to specify the configuration of a manifold.
--   Found and understood the Classification of 2-Manifolds. As well as finding an example of a linkage that provides as a configuration space the orientable manifolds of genus 0 through 3 in Kevin Walkers paper, however I don't fully understand this yet. Somehow it's meant to pop out of this diagram?
-    ![image-20200213113026760](.\images\image-20200213113026760.png)
+    ![image-20200224150420545](C:\Users\evan\Documents\configuration-spaces\images\image-20200224150420545.png)
+
+    Obviously this is now functional, but I also have added a 'show alternate switch option' so we can see this:
+
+    ![image-20200224150600536](.\images\image-20200224150600536.png)
+
+    And also the coordinates and lengths can be edited with this user interface:
+
+    ![image-20200224150806060](C:\Users\evan\Documents\configuration-spaces\images\image-20200224150806060.png)
+
+    This is all good, but the problem is that the lengths and coordinates can be altered to provide configurations that don't fulfill this equation: $\sum_{k=i}^j \boldsymbol\alpha_k \ell_k = 0 $ that ensures that the polygon connects at the end.
+
+- __Thinking of Range Limiting and it's Topological Consequences__
+
+    Leading on from the last point, I believe it is possible to calculate analytically (geometrically) the range of each linkage, and using a conjecture from Kevin Walker about how the order of linkages (need to check this) doesn't matter, essentially as addition in $\mathbb R^2$ is commutative. 
 
 ## Current Problems
 
-- Understanding the Kevin Walker pg 20 on the 5-gon linkage leading to orientable 2-manifolds with genus 0 through 3.
-- Nash Isomorphisms seem difficult to grapple, and I can't find much online about them.
+- Describing linkages for orientable 2-manifolds.
+- Work through the ideas behind the 'range limiting' of the linkage renderer. Could this lead to a way to iterate different manifolds?
 
 ## Current Tasks
 
--   Work through the homotopies for the 'arm' class of linkages
--   Fix my linkage renderer
--   Add angle helper class
+-   Add range limiters to the coordinate selector in the linkage renderer so the linkage can't be put into unattainable positions.
+-   Fix the dynamic size choice in the linkage renderer
+-   Add angle helper class to the linkage renderer
 
 ## Links
 
@@ -239,7 +236,7 @@ This has some points to take away, namely we **are** assigning a distinct point 
 
 Also, the point *'almost always a manifold'* should also be addressed, this can be narrowed down by assuming that the linkages we look at can never fit into a straight line; this can be found here http://amj.math.stonybrook.edu/pdf-Springer-final/017-0070.pdf in Gaiane Panina's paper, but should probably trace the reference to find it's original source, likely Kapovich and Millson. 
 
-##### _Kapovich and Millson Define a Moduli Space_
+##### _Kapovich and Millson Define a Moduli Space_
 
 Firstly, we should address the difference in terminology used by the authors here, it seems that in this context, looking at linkages the Moduli Space and the Configuration Space are the same thing. 
 
