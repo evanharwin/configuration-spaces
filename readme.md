@@ -10,11 +10,11 @@ typora-copy-images-to: images
 
     The linkage rendering has been accomplished, and it has grown in scope fairly substantially. Namely, the broken 4-gon from before now renders nicely going from this:
 
-    ![image-20200213111607569](C:/Users/evan/Documents/configuration-spaces/images/image-20200213111607569.png)
+    ![image-20200213111607569](./images/image-20200213111607569.png)
 
     To this; fixed, with points highlighted and antialiasing enabled:
 
-    ![image-20200224150420545](C:\Users\evan\Documents\configuration-spaces\images\image-20200224150420545.png)
+    ![image-20200224150420545](.\images\image-20200224150420545.png)
 
     Obviously this is now functional, but I also have added a 'show alternate switch option' so we can see this:
 
@@ -22,7 +22,7 @@ typora-copy-images-to: images
 
     And also the coordinates and lengths can be edited with this user interface:
 
-    ![image-20200224150806060](C:\Users\evan\Documents\configuration-spaces\images\image-20200224150806060.png)
+    ![image-20200224150806060](.\images\image-20200224150806060.png)
 
     This is all good, but the problem is that the lengths and coordinates can be altered to provide configurations that don't fulfill this equation: $\sum_{k=i}^j \boldsymbol\alpha_k \ell_k = 0 $ that ensures that the polygon connects at the end.
 
@@ -71,7 +71,7 @@ Looking at this manifold:
 
 We can find a homotopy between this and the $\bigwedge_3 \mathbb S^1$ as follows: ==somehow I think I might want to redraw this==
 
-![image-20200225121214537](C:\Users\evan\Documents\configuration-spaces\images\image-20200225121214537.png)
+![image-20200225121214537](.\images\image-20200225121214537.png)
 
 This then means we can apply the Siefert-van Kampen Theorem and get that $\Pi_1(M((C_4, (a,b,a,b)))) \simeq \bold *_3 \mathbb Z$.
 
