@@ -1,5 +1,6 @@
 // set up scenes
 var scene = new THREE.Scene()
+scene.background = new THREE.Color( 0xffffff );
 
 var camera = new THREE.OrthographicCamera( window.innerWidth / - 400, window.innerWidth / 400, (0.8*window.innerHeight) / 400, (0.8*window.innerHeight) / - 400, 0.0, 1000 );
 // var camera = new THREE.PerspectiveCamera( 130, window.innerWidth / (0.8*window.innerHeight), 0.1, 1000 )
@@ -211,9 +212,9 @@ class Linkage {
 
     draw_lines(show_alt_switch) {
         
-        var line_material = new THREE.LineBasicMaterial( { color: 0xffaaff } )
+        var line_material = new THREE.LineBasicMaterial( { color: 0x000000 } )
         var point_geometry = new THREE.SphereGeometry( 0.02, 16 )
-        var point_material = new THREE.MeshBasicMaterial( { color: 0xffaaff } )
+        var point_material = new THREE.MeshBasicMaterial( { color: 0x000000 } )
         
         // draw lines and points
         this.lines.forEach(line => {
@@ -230,11 +231,20 @@ class Linkage {
         
         })
 
+        // add last point
+        var point_mesh = new THREE.Mesh( point_geometry, point_material )
+        this.mesh.add( point_mesh )
+        point_mesh.position.set( 
+            this.lines[this.lines.length - 1][1].x,
+            this.lines[this.lines.length - 1][1].y,
+            this.lines[this.lines.length - 1][1].z
+        )
+
         // if neccessary, show alternate switch position
         if (show_alt_switch) {
 
             // dashed lines
-            var alt_line_material = new THREE.LineDashedMaterial( { color: 0xffaaff, dashSize: 0.01 , gapSize: 0.04 } )
+            var alt_line_material = new THREE.LineDashedMaterial( { color: 0x000000, dashSize: 0.01 , gapSize: 0.04 } )
 
             // draw lines
             this.alt_switch.forEach(line => {
@@ -319,8 +329,50 @@ class Polygon extends Linkage {
     }
 }
 
-var ngon = new Polygon(4, [2,1,2,1], [1,1], [true, false, true, false], true)
+var light = new THREE.DirectionalLight( 0xffffff, 1 );
+scene.add(light)
+var torus1 = new THREE.Mesh( 
+    new THREE.TorusGeometry(3,1,16,100),
+    new THREE.MeshStandardMaterial( { color: 0xeeeeee, opacity: 0.5, transparent: true } )
+)
+var torus2 = new THREE.Mesh( 
+    new THREE.TorusGeometry(3,1,16,100),
+    new THREE.MeshStandardMaterial( { color: 0xeeeeee, opacity: 0.5, transparent: true } )
+)
+
+var point = new THREE.Mesh( 
+    new THREE.SphereGeometry( 0.1, 16 ),
+    new THREE.MeshBasicMaterial( { color: 0xff00ff } )
+)
+
+torus1.rotation.x = Math.PI/2
+torus2.rotation.x = Math.PI/2 
+torus1.position.x += 4
+torus2.position.x -= 4
+
+scene.add( torus1, torus2, point )
+
+// var ngon = new Polygon(5, [2,0.7,0.7,1.7,1.7], [-Math.PI/4,Math.PI/4,1], [true, false, true, false], false)
 // var link = new Polygon(1, [1], [])
+// var two_arm = new Linkage()
+// two_arm.lines = [
+//     // base
+//     [
+//         new THREE.Vector3( 0, 0, 0 ),
+//         new THREE.Vector3( -1, 0, 0 )
+//     ],
+//     // arm one
+//     [
+//         new THREE.Vector3( -1, 0, 0 ),
+//         new THREE.Vector3( -1.5, 0.5, 0 )
+//     ],
+//     // arm two
+//     [
+//         new THREE.Vector3( -1.5, 0.5, 0 ),
+//         new THREE.Vector3( -1, 1, 0 )
+//     ]
+// ]
+// two_arm.draw_lines(false)
 // var loopthing = new CirclesTwoIntersections()
 // var loopthing2 = new CirclesTwoIntersectionsSpecialCase()
 

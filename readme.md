@@ -63,6 +63,46 @@ http://homepages.warwick.ac.uk/~maskas/courses/schuetz1.pdf
 
 ## Project Notes
 
+##### Describing a linkage with a moduli space homotopic to any $2^n$ genus, orientable 2-manifold.
+
+The motivation here is to find a way to algorithmically determine a linkage with a configuration space that is topologically equivalent to any given 2-manifold. Here is a method for the case in which the 2-manifold is orientable with genus $2^n$ for integer $n$.
+
+ To start we need a linkage that has the configuration space of a $T^2$. The 2-arm construction satisfying this property is shown below. 
+
+<img src=".\images\image-20200305121929200.png" alt="image-20200305121929200" style="zoom:50%;" />
+
+If we join the ends of this arm, with two other linkages that are long enough not to ever restrict the movement of the 2-arm, we can get a configuration space of two disjoint tori. This is as the 2-arm can be in any position on a torus, but there is two states that the longer links can form (illustrated below). As the longer links cannot be continuously moved between states, we know that the two tori are disjoint.
+
+<img src=".\images\image-20200305122223096.png" alt="image-20200305122223096" style="zoom:50%;" />
+
+With a little thought we can see that 'long enough not to restrict the two arm' means that the sum of lengths of the two new links must be longer than the sum of the other three links so that the 2-arm can reach the limit of it's travel to the left.
+
+Another restriction we need is to ensure that the endpoint of the 2-arm can never reach the rightmost point of the base, as then we have an awkward fixed point in which the two endpoints of our switch are equal and then if the two longer length linkages are equal they will be able to rotate around a whole circle here, effectively making our configuration space into a wedge sum of the rest of the positions and an $\mathbb S^1$, disjoint everywhere besides this point. We can restrict this by making sure our base is longer than our 2-arm.
+
+And finally, to make sure that the end of our 2-arm can reach the rightmost point of it's range, we need that the magnitude of the difference in length between the two longer edges is less than the magnitude of the difference in length between our 2-arm linkages and the base.
+
+However, disjoint tori aren't the most interesting configuration spaces. What makes this approach able to represent $2^n$ genus, orientable 2-manifolds is that we can add a fixed point where all of the tori intersect, taking a wedge sum.
+
+We do this by making it so our switch is only just long enough to reach the left most point of our 2-arms range, and hence at this point in time the two positions that our switch can take collapse into one. We do this by making it so the sum of the two longer lengths is equal to the sum of the length of the base and the two linkages making up the 2-arm.
+
+Then we have a pentagonal linkage with these restrictions:
+
+<img src=".\images\image-20200305132910305.png" alt="image-20200305132910305" style="zoom:50%;" />
+$$
+A_1 + A_2 < B \\
+S_1 + S_2 = B + A_1 + A_2 \\
+|S_1 - S_2| < |B-A_1 +A_2|
+$$
+
+
+With this linkage we then have the configuration space $\bigwedge_2 T^2$ that looks like so:
+
+![image-20200305134805536](C:\Users\evan\Documents\configuration-spaces\images\image-20200305134805536.png)
+
+By duplicating the switch we can then make the wedge sum of these two tori into the wedge sum of any power of two tori. ==more words here please== 
+
+
+
 ##### Thinking about the Fundamental Group, Free Products and the $(C_4, (a,b,a,b))$ 
 
 Looking at this manifold:
@@ -73,7 +113,9 @@ We can find a homotopy between this and the $\bigwedge_3 \mathbb S^1$ as follows
 
 ![image-20200225121214537](.\images\image-20200225121214537.png)
 
-This then means we can apply the Siefert-van Kampen Theorem and get that $\Pi_1(M((C_4, (a,b,a,b)))) \simeq \bold *_3 \mathbb Z$.
+This then means we can apply the Siefert-van Kampen Theorem 
+
+and get that $\Pi_1(M((C_4, (a,b,a,b)))) \simeq \bold *_3 \mathbb Z$.
 
 This is interesting if we remember the meaning of the configuration space and the fundamental group. 
 
@@ -113,7 +155,7 @@ Hence:
 1.  Any point $(a_1,a_2)$ in $M((C_4, (2,1,2,1)))$ is also in $\mathbb S^1 \times \mathbb S^0$ but fixing $(0,1) = (0,0)$ and $(\pi,0) = (\pi, 1)$.
 2.  Any point $\boldsymbol{x}$ in $X$ is on one of the $\mathbb{S^1}$'s that $X$ is composed of, at an angle we'll call $\theta$.
 
-Without loss of generality, as the manifold is the same if you rotate it $\frac \pi 2$ about the $y$-axis, we can specify the $\mathbb S^1$'s  that make up $X$ and call them $B$ and $Y$ (blue and yellow matching the diagram).
+Without loss of generality, as the manifold is the same if you rotate it $\frac \pi 2$ about the $y$-axis, we can specify the $\mathbb S^1$'s  that make up $X$ and call them $B$ and $Y$ (blue and yellow mat ching the diagram).
 
 Then define:
 $$
