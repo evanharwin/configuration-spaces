@@ -1,0 +1,11 @@
+updmap [ERROR]: The following map file(s) couldn't be found:
+updmap [ERROR]: 	CountriesofEurope.map (in c:/texlive/2019/texmf-dist/web2c/updmap.cfg)
+updmap [ERROR]: 	algolrevived.map (in c:/texlive/2019/texmf-dist/web2c/updmap.cfg)
+updmap [ERROR]: 	montserrat.map (in c:/texlive/2019/texmf-dist/web2c/updmap.cfg)
+updmap [ERROR]: Did you run mktexlsr?
+
+	You can disable non-existent map entries using the option
+	  --syncwithtrees.
+
+C:\texlive\2019\bin\win32\runscript.tlu:902: command failed with exit code 1:
+perl.exe c:\texlive\2019\texmf-dist\scripts\texlive\updmap.pl  --sys 
