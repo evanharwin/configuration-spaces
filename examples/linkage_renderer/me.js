@@ -329,6 +329,60 @@ class Polygon extends Linkage {
     }
 }
 
+class Arm extends Linkage {
+    constructor( coords, angle_helpers ) {
+        super()
+
+        // base
+        this.lines = [[
+            new THREE.Vector3( 1, 0, 0 ),
+            new THREE.Vector3( -1, 0, 0 )
+        ]]
+        
+        // all the neccessary angles
+        for ( var i = 1; i < coords.length+1; i++ ) {
+            this.lines.push(
+                [
+                    this.lines[i-1][1],
+                    this.lines[i-1][1].clone().add( new THREE.Vector3(
+                        Math.sin( coords[i-1] ),
+                        Math.cos( coords[i-1] ),
+                        0
+                    ) )
+                ]
+            )
+        }
+        
+        // render
+        this.draw_lines()
+
+        // add angle helpers
+        this.angle_helpers = []
+        var current_origin = new THREE.Vector3( -1, 0, 0 )
+
+        for (let i = 0; i < Math.min(coords.length, angle_helpers.length); i++) {
+            
+
+            if (angle_helpers[i]) {
+                this.angle_helpers.push(
+                    new AngleHelper(
+                            current_origin,
+                            new THREE.Vector3(0,1,0),
+                            new THREE.Vector3(0,0,1),
+                            coords[i],
+                            0.5
+                    )
+                )
+            }
+
+        current_origin.x += Math.sin( coords[i] ) 
+        current_origin.y += Math.cos( coords[i] )
+            
+        }
+
+    }
+}
+
 class AngleHelper {
     constructor(position, reference, axis, angle, size) {
         this.grouped_meshes = new THREE.Group()
@@ -378,71 +432,80 @@ class AngleHelper {
         this.grouped_meshes.add( circle )
         circle.lookAt( position.clone().add( axis.clone().normalize() ) )
         circle.applyQuaternion(
-            new THREE.Quaternion().setFromAxisAngle( axis.clone().normalize(), Math.PI/4 )
+            new THREE.Quaternion().setFromAxisAngle( axis.clone().normalize(), angle + 3*Math.PI/2)
         )
 
         scene.add(this.grouped_meshes)
 
     }
 }
-// var light = new THREE.DirectionalLight( 0xaaaaaa, 1 );
-// scene.add(light)
-// var torus1 = new THREE.Mesh( 
-//     new THREE.TorusGeometry(3,1,100,100),
-//     new THREE.MeshStandardMaterial( { color: 0xaaaaaa, opacity: 0.5, transparent: true } )
-// )
-// var torus2 = new THREE.Mesh( 
-//     new THREE.TorusGeometry(3,1,16,100),
-//     new THREE.MeshStandardMaterial( { color: 0xeeeeee, opacity: 0.5, transparent: true } )
-// )
 
-// var point = new THREE.Mesh( 
-//     new THREE.SphereGeometry( 0.1, 16 ),
-//     new THREE.MeshBasicMaterial( { color: 0xff00ff } )
-// )
+// tori
+    // var light = new THREE.DirectionalLight( 0xaaaaaa, 1 );
+    // scene.add(light)
+    // var torus1 = new THREE.Mesh( 
+    //     new THREE.TorusGeometry(3,1,100,100),
+    //     new THREE.MeshStandardMaterial( { color: 0xaaaaaa, opacity: 0.5, transparent: true } )
+    // )
+    // var torus2 = new THREE.Mesh( 
+    //     new THREE.TorusGeometry(3,1,16,100),
+    //     new THREE.MeshStandardMaterial( { color: 0xeeeeee, opacity: 0.5, transparent: true } )
+    // )
 
-// torus1.rotation.x = Math.PI/2
-// torus1.renderOrder = 1
-// torus2.rotation.x = Math.PI/2 
-// torus1.position.x += 4
-// torus2.position.x -= 4
+    // var point = new THREE.Mesh( 
+    //     new THREE.SphereGeometry( 0.1, 16 ),
+    //     new THREE.MeshBasicMaterial( { color: 0xff00ff } )
+    // )
 
-// var torus_angle_1 = new AngleHelper(
-//     new THREE.Vector3(0,0,0),
-//     new THREE.Vector3(1,0,0),
-//     new THREE.Vector3(0,1,0),
-//     7*Math.PI/4,
-//     3
-// )
-// var torus_angle_2 = new AngleHelper(
-//     new THREE.Vector3(
-//         3 * Math.cos(7*Math.PI/4),
-//         0,
-//         3 * Math.sin(7*Math.PI/4),
-//     ),
-//     new THREE.Vector3(
-//         0,
-//         1,
-//         0,
-//     ),
-//     new THREE.Vector3(
-//         Math.cos(7*Math.PI/4),
-//         0,
-//         -Math.sin(7*Math.PI/4),
-//     ),
-//     Math.PI/4,
-//     1
-// )
+    // torus1.rotation.x = Math.PI/2
+    // torus1.renderOrder = 1
+    // torus2.rotation.x = Math.PI/2 
+    // torus1.position.x += 4
+    // torus2.position.x -= 4
+
+    // var torus_angle_1 = new AngleHelper(
+    //     new THREE.Vector3(0,0,0),
+    //     new THREE.Vector3(1,0,0),
+    //     new THREE.Vector3(0,1,0),
+    //     7*Math.PI/4,
+    //     3
+    // )
+    // var torus_angle_2 = new AngleHelper(
+    //     new THREE.Vector3(
+    //         3 * Math.cos(7*Math.PI/4),
+    //         0,
+    //         3 * Math.sin(7*Math.PI/4),
+    //     ),
+    //     new THREE.Vector3(
+    //         0,
+    //         1,
+    //         0,
+    //     ),
+    //     new THREE.Vector3(
+    //         Math.cos(7*Math.PI/4),
+    //         0,
+    //         -Math.sin(7*Math.PI/4),
+    //     ),
+    //     Math.PI/4,
+    //     1
+    // )
 
 
-// scene.add( torus1, torus2, point )
-// scene.add( torus1 )
+    // scene.add( torus1, torus2, point )
+    // scene.add( torus1 )
 
-var twonmanifolddemo = new Polygon(5, [2,0.7,0.7,2,2], [-Math.PI/4,Math.PI/4,1], [true, false, true, false], true)
+// var twonmanifolddemo = new Polygon(5, [2,0.7,0.7,2,2], [-Math.PI/4,Math.PI/4,1], [true, false, true, false], true)
+
 // var triangle = new Polygon(3, [3,1,2], [1], [true, false, true, false], false)
+
 // var rectangle = new Polygon(4, [2,1,2,1], [3*Math.PI/2, 1], [], true)
+
 // var link = new Polygon(1, [1], [])
 
+
+var two_arm = new Arm([0,2,1], [false,true,true])
+
+// two_arm
 // var two_arm = new Linkage()
 // two_arm.lines = [
 //     // base
